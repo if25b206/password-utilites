@@ -1,7 +1,15 @@
 # Pull Request
 
 **What does this PR do?**
-This has the 2 functions isStrongPassword() and GenerateStrongPassword() implemented
+Implements `isStrongPassword()` and `generateStrongPassword()`. Fixed `generateStrongPassword()` to guarantee it always returns a strong password by retrying until `isStrongPassword()` passes. Added a Jest unit test to verify this behavior.
+
+**Related issue:**
+Fixes: `generateStrongPassword` can return unsafe/weak passwords
+
+**Changes:**
+- Changed `const strongPassword` to `let` to allow reassignment
+- Added `while (!isStrongPassword(strongPassword))` loop to retry generation until the password is strong
+- Added Jest unit test to verify `generateStrongPassword` always returns a strong password
 
 **Checklist:**
 - [ ] I tested my changes with `npm test`
