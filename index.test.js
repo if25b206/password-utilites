@@ -9,3 +9,8 @@ test('weak password returns false', () => {
     const result = isStrongPassword('abc');
     expect(result).toBe(false);
 });
+
+test('generateStrongPassword always returns a strong password', () => {
+    const password = generateStrongPassword(12);
+    expect(isStrongPassword(password)).toBe(true);
+});
